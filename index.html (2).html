@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Spark Multi Sports Arena | Madurai Turf</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #10b981;
+      --primary-dark: #059669;
+      --accent: #f59e0b;
+      --bg-dark: #0b1320;
+      --bg-card: #132035;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #1e293b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 19, 32, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn-cta {
+      background: var(--primary);
+      color: #042f2c;
+      padding: 0.65rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-cta:hover {
+      background: var(--primary-dark);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      padding: 6rem 1.5rem 5rem;
+      text-align: center;
+      background: radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.15), transparent 70%);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--primary);
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto 2rem;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      padding: 0.65rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid var(--border-color);
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Quick Info Cards */
+    .info-bar {
+      max-width: 1000px;
+      margin: -2rem auto 4rem;
+      padding: 0 1.5rem;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .info-icon {
+      font-size: 1.6rem;
+      background: rgba(16, 185, 129, 0.12);
+      padding: 0.6rem;
+      border-radius: 0.75rem;
+    }
+
+    .info-text h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .info-text p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Section Styles */
+    section {
+      padding: 4rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 2rem;
+      border-radius: 1rem;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .feature-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* Pricing & Slots */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .pricing-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 1rem;
+      padding: 2.2rem;
+      position: relative;
+    }
+
+    .pricing-card.featured {
+      border: 2px solid var(--primary);
+    }
+
+    .popular-tag {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: var(--primary);
+      color: #042f2c;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.2rem 0.8rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+    }
+
+    .pricing-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-price {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+    }
+
+    .pricing-price span {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-features li {
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .pricing-features li::before {
+      content: "✓";
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    /* Booking Callout */
+    .booking-box {
+      background: linear-gradient(135deg, #132a24 0%, #0b1a16 100%);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 3rem 2rem;
+      border-radius: 1.5rem;
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .booking-box h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .booking-box p {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      color: #cbd5e1;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 3rem 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand">⚡ The Spark <span>Arena</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#facilities">Facilities</a></li>
+        <li><a href="#slots">Slots & Pricing</a></li>
+        <li><a href="#location">Location</a></li>
+      </ul>
+      <a href="https://wa.me/919080812334?text=Hi%20The%20Spark%20Arena,%20I%20would%20like%20to%20inquire%20about%20booking%20a%20slot." class="btn-cta" target="_blank">
+        Book Slot
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-badge">📍 Near Decathlon, Narasingam, Madurai</div>
+    <h1>Unleash Your Game at <br><span>The Spark Multi Sports Arena</span></h1>
+    <p>Madurai's premier multi-sport turf facility built for Box Cricket, Football, Training, and Tournaments with pro-grade turf and tournament floodlights.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/919080812334?text=Hi%20The%20Spark%20Arena,%20I%20would%20like%20to%20book%20a%20slot." class="btn-cta" target="_blank">
+        💬 Book via WhatsApp
+      </a>
+      <a href="tel:+919080812334" class="btn-secondary">
+        📞 Call +91 90808 12334
+      </a>
+    </div>
+  </section>
+
+  <!-- Info Bar -->
+  <div class="info-bar">
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="info-icon">⚽</div>
+        <div class="info-text">
+          <h4>Multi-Sport Ground</h4>
+          <p>Box Cricket & Football</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">💡</div>
+        <div class="info-text">
+          <h4>Night Floodlights</h4>
+          <p>Crystal-clear LED lights</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">🚗</div>
+        <div class="info-text">
+          <h4>Ample Parking</h4>
+          <p>Two & Four wheeler space</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Facilities / Highlights -->
+  <section id="facilities">
+    <div class="section-title">
+      <h2>Why Choose The Spark Arena?</h2>
+      <p>Engineered for sports lovers, amateur squads, and professional coaching</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🌿</div>
+        <h3>FIFA Standard Turf</h3>
+        <p>High-density, joint-friendly artificial grass engineered for optimum ball bounce, grip, and injury prevention.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏏</div>
+        <h3>Box Cricket Ready</h3>
+        <p>Fully netted enclosure with boundary markings and pitch dimensions ideal for 6-a-side and 7-a-side cricket.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏆</div>
+        <h3>Tournaments & Events</h3>
+        <p>Host corporate leagues, weekend tournaments, or birthday matches with seating, score tracking, and refreshments.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🚿</div>
+        <h3>Locker & Refreshments</h3>
+        <p>Clean restrooms, drinking water stations, and waiting lounge area for team lineups and spectators.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slots & Pricing -->
+  <section id="slots">
+    <div class="section-title">
+      <h2>Standard Slot Packages</h2>
+      <p>Flexible hourly slots and monthly memberships available</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Daytime Slot</h3>
+        <div class="pricing-price">₹800 <span>/ hour</span></div>
+        <ul class="pricing-features">
+          <li>6:00 AM – 5:00 PM</li>
+          <li>Football / Box Cricket Gear Access</li>
+          <li>Cold Mineral Water Included</li>
+          <li>Ideal for practice drills & friendly games</li>
+        </ul>
+        <a href="https://wa.me/919080812334?text=Hi,%20I%20want%20to%20book%20a%20Daytime%20Slot%20at%20The%20Spark%20Arena" class="btn-secondary" style="display:block; text-align:center;">Book Daytime</a>
+      </div>
+
+      <div class="pricing-card featured">
+        <span class="popular-tag">Most Popular</span>
+        <h3>Night Floodlight Slot</h3>
+        <div class="pricing-price">₹1,200 <span>/ hour</span></div>
+        <ul class="pricing-features">
+          <li>5:00 PM – 11:00 PM</li>
+          <li>High-Intensity LED Arena Lighting</li>
+          <li>Full Box Cricket & Football Support</li>
+          <li>Umpiring & Scoring Board support</li>
+        </ul>
+        <a href="https://wa.me/919080812334?text=Hi,%20I%20want%20to%20book%20a%20Night%20Floodlight%20Slot%20at%20The%20Spark%20Arena" class="btn-cta" style="display:block; text-align:center;">Book Night Slot</a>
+      </div>
+
+      <div class="pricing-card">
+        <h3>Tournament / Corporate</h3>
+        <div class="pricing-price">Custom <span>/ package</span></div>
+        <ul class="pricing-features">
+          <li>Full Arena Exclusive Booking</li>
+          <li>Full-day / Multi-day League setup</li>
+          <li>Trophy / Presentation Stage Space</li>
+          <li>Dedicated Event Coordinator</li>
+        </ul>
+        <a href="https://wa.me/919080812334?text=Hi,%20I%20want%20to%20plan%20a%20Tournament/Corporate%20booking%20at%20The%20Spark%20Arena" class="btn-secondary" style="display:block; text-align:center;">Inquire Custom</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location & CTA -->
+  <section id="location">
+    <div class="booking-box">
+      <h2>Ready to Step on the Pitch?</h2>
+      <p>Reserve your match slot instantly over WhatsApp or plan a friendly match with your squad today.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/919080812334?text=Hello%20The%20Spark%20Multi%20Sports%20Arena,%20I%20want%20to%20check%20slot%20availability." class="btn-cta" target="_blank">
+          Reserve Slot via WhatsApp
+        </a>
+      </div>
+      <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #94a3b8;">
+        📍 <strong>Location:</strong> Near Decathlon, Narasingam, Madurai - 625107, Tamil Nadu
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 The Spark Multi Sports Arena. Designed for demonstration purposes.</p>
+    <p style="margin-top: 0.3rem;">Contact: <strong>+91 90808 12334</strong> | Narasingam, Madurai</p>
+  </footer>
+
+</body>
+</html>
